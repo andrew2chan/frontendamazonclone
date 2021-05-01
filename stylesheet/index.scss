@@ -1,0 +1,76 @@
+@import 'commonmixins';
+
+$searchContainerHeight: 25px;
+
+@mixin search-bar-container-elements {
+  height: $searchContainerHeight;
+  padding: 5px 10px;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  background-color: #0F1111;
+
+  div {
+    flex: 1;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      font-family: "Roboto";
+    }
+  }
+
+  #searchBarContainer { //the search bar container
+    flex: 3;
+    display: flex;
+    align-items: center;
+    height: 55px;
+    margin: 0 25px;
+
+    #searchLabel {
+      display: flex;
+      background-color: #ffd269;
+      @include borderRadiusFourInput(0, 10px, 10px, 0)
+      cursor: pointer;
+      align-items: center;
+
+      svg {
+        font-size: 150%;
+        @include search-bar-container-elements;
+      }
+
+      #searchNavbar {
+        position: absolute;
+        top: -9999px;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+    border: 0;
+    @include search-bar-container-elements;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}

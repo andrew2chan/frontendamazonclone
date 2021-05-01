@@ -1,0 +1,29 @@
+@mixin borderRadiusFourInput($radiusTop, $radiusRight, $radiusBottom, $radiusLeft) {
+  border-radius: $radiusTop $radiusRight $radiusBottom $radiusLeft;
+  -webkit-border-radius: $radiusTop $radiusRight $radiusBottom $radiusLeft;
+  -moz-border-radius: $radiusTop $radiusRight $radiusBottom $radiusLeft;
+}
+
+@mixin borderRadiusTwoInput($radiusTopBottom, $radiusLeftRight) {
+  border-radius: $radiusTopBottom $radiusLeftRight;
+  -webkit-border-radius: $radiusTopBottom $radiusLeftRight;
+  -moz-border-radius: $radiusTopBottom $radiusLeftRight;
+}
+
+@mixin borderRadiusOneInput($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+
+@mixin boxsizeOneInput($param) {
+  box-sizing: $param;
+  -webkit-box-sizing: $param;
+  -moz-box-sizing: $param;
+}
+
+@mixin boxshadowFourInput($hoffset, $voffset, $blur, $color) {
+  box-shadow: $hoffset $voffset $blur $color;
+  -webkit-box-shadow: $hoffset $voffset $blur $color;
+  -moz-box-shadow: $hoffset $voffset $blur $color;
+}

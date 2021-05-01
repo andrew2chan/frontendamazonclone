@@ -1,0 +1,49 @@
+@import 'commonmixins';
+
+.mainContainer {
+  display: flex;
+  flex-flow: row wrap;
+
+  .productContainer {
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+
+    .productInnerContainer {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      font-family: "Roboto";
+
+      .productName {
+        width: 100%;
+        text-align: center;
+        border-style: solid;
+        border-width: 1px 1px 0 1px;
+        @include borderRadiusFourInput(5px, 5px, 0, 0);
+      }
+
+      .productPrice {
+        width: 100%;
+        text-align: center;
+        border: 1px solid black;
+      }
+
+      .productDescription {
+        width: 100%;
+        text-align: center;
+        border-style: solid;
+        border-width: 0 1px 1px 1px;
+      }
+
+      input[type='button'] {
+        width: 100%;
+        @include boxsizeOneInput(border-box);
+        background-color: #ffd269;
+        padding: 5px 0;
+        margin: 10px 0;
+      }
+
+    }
+  }
+}
