@@ -10,9 +10,8 @@ const port = process.env.PORT | 8080
 
 app.use(express.static('dist'))
 
-app.get('/*', function (req, res) { //send everyone to index.html
-  //res.sendFile(path.join(__dirname, './dist/index.html'));
-  console.log("running fine");
+app.get('*', function (req, res) { //send everyone to index.html
+  res.sendFile(path.join(__dirname, './dist/index.html'));
 });
 
 app.listen(port, function() {
