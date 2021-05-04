@@ -24,7 +24,6 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install --production
-        npm run webpack --if-present
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
