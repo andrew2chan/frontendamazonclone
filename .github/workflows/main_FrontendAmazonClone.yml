@@ -25,7 +25,6 @@ jobs:
       run: |
         npm install
         npm run webpack --if-present
-        node app.js
 
   deploy:
     runs-on: ubuntu-latest
