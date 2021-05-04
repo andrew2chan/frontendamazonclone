@@ -8,7 +8,7 @@ app.use(cors());
 
 const port = process.env.PORT | 8080
 
-app.use(express.static('dist'))
+app.use(express.static('public'))
 
 app.get('*', function (req, res) { //send everyone to index.html
   res.sendFile(path.join(__dirname, './public/index.html'));
