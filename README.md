@@ -12,3 +12,7 @@ To run on your own machine:<br/>
 npm install<br/>
 npm run start:dev<br/>
 </p>
+
+<p>
+You can then navigate to localhost: 3030 to access the development react page
+</p>
