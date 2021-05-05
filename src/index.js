@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {fetchURL, initialFetchStatus} from './constants.js'
+import {fetchWithBody, fetchGet} from "./helperFunctions.js";
 
 import Register from './components/register.js';
 import Login from './components/login.js';
@@ -54,7 +55,8 @@ class Main extends React.Component {
   }
 
   async fetchInitialState() {
-    let bearer = "Bearer " + localStorage.getItem("jwtToken");
+    //let bearer = "Bearer " + localStorage.getItem("jwtToken");
+    let id = localStorage.getItem("loggedInId");
     let body = {
       "Id": localStorage.getItem("loggedInId"),
       "Name": "",
@@ -62,7 +64,7 @@ class Main extends React.Component {
       "Address": ""
     };
 
-    const fetchedData = await fetch(fetchURL+"/api/Users/"+localStorage.getItem("loggedInId"), {
+    /*const fetchedData = await fetch(fetchURL+"/api/Users/"+localStorage.getItem("loggedInId"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +75,9 @@ class Main extends React.Component {
 
     const returnedPromised = await fetchedData.json();
 
-    return returnedPromised;
+    return returnedPromised;*/
+
+    return await fetchWithBody(fetchURL + "/api/Users/" + id, "POST", body);
   }
 
   //callback that is passed down to login to save data
