@@ -55,7 +55,6 @@ class Main extends React.Component {
   }
 
   async fetchInitialState() {
-    //let bearer = "Bearer " + localStorage.getItem("jwtToken");
     let id = localStorage.getItem("loggedInId");
     let body = {
       "Id": localStorage.getItem("loggedInId"),
@@ -63,19 +62,6 @@ class Main extends React.Component {
       "Email": "",
       "Address": ""
     };
-
-    /*const fetchedData = await fetch(fetchURL+"/api/Users/"+localStorage.getItem("loggedInId"), {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": bearer
-      },
-      body: JSON.stringify(body)
-    })
-
-    const returnedPromised = await fetchedData.json();
-
-    return returnedPromised;*/
 
     return await fetchWithBody(fetchURL + "/api/Users/" + id, "POST", body);
   }
@@ -114,13 +100,13 @@ class Main extends React.Component {
             <Home searchbar={this.state.searchBar} logged={this.state.isLogged} showsearchbar={this.updateShowSearchBar} />
           </Route>
           <Route path="/logout">
-            <Logout updatecurrentuser={this.updateCurrentUser}/>
+            <Logout updatecurrentuser={this.updateCurrentUser} />
           </Route>
           <Route path="/register">
-            <Register />
+            <Register logged={this.state.isLogged}/>
           </Route>
           <Route path="/login">
-            <Login updatecurrentuser={this.updateCurrentUser} />
+            <Login updatecurrentuser={this.updateCurrentUser} logged={this.state.isLogged}/>
           </Route>
           <PrivateRoute {...this.state} updatecurrentuser={this.updateCurrentUser}></PrivateRoute>
         </Switch>

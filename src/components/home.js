@@ -22,19 +22,6 @@ export default class Home extends React.Component {
   }
 
   async fetchProducts() {
-    /*let bearer = "Bearer " + localStorage.getItem("jwtToken");
-
-    let fetchProducts = await fetch(fetchURL + "/api/Products", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": bearer
-      }
-    });
-
-    let jsonProducts = await fetchProducts.json();
-
-    return jsonProducts;*/
     return await fetchGet(fetchURL + "/api/Products");
   }
 

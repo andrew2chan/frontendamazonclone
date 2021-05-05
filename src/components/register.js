@@ -29,15 +29,6 @@ export default class Register extends React.Component {
 
   async fetchPostData() {
     let sendBody = {"Name": this.state.name, "Email": this.state.email, "Address": this.state.address, "Password": this.state.password};
-    /*const sentDataResult = await fetch(fetchURL+'/api/Users', {
-      method: 'POST',
-      headers: {"Content-type": "application/json"},
-      body: JSON.stringify({"Name": this.state.name, "Email": this.state.email, "Address": this.state.address, "Password": this.state.password})
-    })
-
-    const returnPromise = await sentDataResult.json();
-
-    return returnPromise;*/
 
     return await fetchWithBody(fetchURL+'/api/Users', "POST", sendBody);
   }
@@ -72,6 +63,10 @@ export default class Register extends React.Component {
   render() {
     if(this.state.formStateMessage === undefined) {
       return <Redirect to="/login" /> //redirect if no response message is set
+    }
+
+    if(this.props.logged) {
+      return <Redirect to="/profile" />
     }
 
     return(

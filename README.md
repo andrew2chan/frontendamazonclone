@@ -1,6 +1,6 @@
 # Frontend
 <p>
-This is the frontend for my frontend amazon clone web app located <a href="https://frontendamazonclone.azurewebsites.net/">here</a>
+This is the frontend for my frontend amazon clone web app located <a href="https://frontendamazonclone.azurewebsites.net/">here</a> on azure or <a href="https://frontendamazonclone.herokuapp.com/">here</a> on heroku
 </p>
 
 <p>

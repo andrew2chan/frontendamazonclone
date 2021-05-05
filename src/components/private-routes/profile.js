@@ -38,20 +38,6 @@ export default class Profile extends React.Component {
   async fetchPutData() {
     let id = localStorage.getItem("loggedInId");
     let sendBody = {"id": localStorage.getItem("loggedInId"), "Name": this.state.name, "Email": this.state.email, "Address": this.state.address, "Password": this.state.password};
-    /*let bearer = "Bearer " + localStorage.getItem("jwtToken");
-
-    const sentDataResult = await fetch(fetchURL+"/api/Users/"+localStorage.getItem("loggedInId"), {
-      method: 'PUT',
-      headers: {
-        "Content-type": "application/json",
-        "Authorization": bearer
-      },
-      body: JSON.stringify({"id": localStorage.getItem("loggedInId"), "Name": this.state.name, "Email": this.state.email, "Address": this.state.address, "Password": this.state.password})
-    });
-
-    const returnPromise = await sentDataResult.json();
-
-    return returnPromise;*/
 
     return await fetchWithBody(fetchURL + "/api/Users/"+ id, "PUT", sendBody);
   }
@@ -59,21 +45,6 @@ export default class Profile extends React.Component {
   async fetchDeleteData() {
     let id = localStorage.getItem("loggedInId");
     let sendBody = {"id": localStorage.getItem("loggedInId"), "Name": this.state.name, "Email": this.state.email, "Address": this.state.address, "Password": this.state.password};
-
-    /*let bearer = "Bearer " + localStorage.getItem("jwtToken");
-
-    const sentDataResult = await fetch(fetchURL+"/api/Users/"+localStorage.getItem("loggedInId"), {
-      method: 'DELETE',
-      headers: {
-        "Content-type": "application/json",
-        "Authorization": bearer
-      },
-      body: JSON.stringify({"id": localStorage.getItem("loggedInId"), "Name": this.state.name, "Email": this.state.email, "Address": this.state.address, "Password": this.state.password})
-    });
-
-    const returnPromise = await sentDataResult.json();
-
-    return returnPromise;*/
 
     return await fetchWithBody(fetchURL + "/api/Users/" + id, "DELETE", sendBody);
   }
